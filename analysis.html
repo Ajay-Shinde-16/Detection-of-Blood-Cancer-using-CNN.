@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Dataset Analysis</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+                <div class="row">
+                    <div >
+                        <div class="form-group">
+                            Data Distribution  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+
+                    </div>
+                    <br>
+                    <div >
+                        <div class="form-group">
+                           <img src="static/data.png">
+                        </div>
+                    </div>
+                    <div >
+                        <div class="form-group">
+                            Epoch vs Loss &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <br>
+                    <div >
+                        <div class="form-group">
+                            <img src="static/male_female_r.png">
+                        </div>
+                    </div>
+                    <div >
+                        <div class="form-group">
+                            Epoch vs Accuraccy  
+                        </div>
+                    </div>
+                    <br>
+                    <div >
+                        <div class="form-group">
+                           <img src="static/corelation.png">
+                        </div>
+                    </div>
+                </div>
+
+               
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% endblock %}

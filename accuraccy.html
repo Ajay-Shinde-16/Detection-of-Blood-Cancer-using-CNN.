@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="row" style="margin-bottom: 175px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Accuraccy Analysis</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+               <div >
+                        <div class="form-group">
+                           Accuraccy Analysis  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+
+                    </div>
+                    <br>
+                    <div >
+                        <div class="form-group">
+                           <img src="static/accu.png">
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% endblock %}
