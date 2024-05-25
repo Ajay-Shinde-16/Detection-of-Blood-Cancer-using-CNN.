@@ -12,9 +12,13 @@ import predict as predict_
 app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+
+
 @app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template('dataset.html')
 
 
 @app.route("/datasetPage", methods=['GET', 'POST'])
@@ -43,7 +47,7 @@ import mysql
 db = con.connect(
     host="localhost",
     user="root",
-    password="",
+    password="root",
     database="blood_cancer"
 )
 
@@ -75,7 +79,7 @@ def predictPage():
         file.save(destination)
         pred = 1
         # render_template_to_pdf('test.html', download=True, save=False, param='hello')
-        pred = predict_.predict(destination)
+        # pred = predict_.predict(destination)
         insert_data(name, email, mobile, age, gender, problem, pred)
 
         return render_template('report.html', details=[name, email, mobile, age, gender, problem, pred])

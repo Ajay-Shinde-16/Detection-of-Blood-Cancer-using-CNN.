@@ -62,10 +62,7 @@ def plot_confusion_matrix(cm, target_names, title='Confusion matrix', cmap=None,
 y_pred, y_true = analysis.analysis()
 
 correct_predicted = 0
-y_true = y_true[:len(y_pred)]
-
 for i in range(len(y_true)):
-    
     if y_pred[i] == y_true[i]:
         correct_predicted = correct_predicted + 1
 print("Total Number of testing sample:", len(y_true))

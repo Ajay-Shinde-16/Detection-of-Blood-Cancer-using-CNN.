@@ -3,19 +3,18 @@ import os
 
 import tensorflow as tf
 
-classifierLoad = tf.keras.models.load_model('model.h5',compile=False)
+classifierLoad = tf.keras.models.load_model('model.h5')
 import numpy as np
-# from keras.preprocessing import image
-import keras.utils as image
+from keras.preprocessing import image
+
 
 def predict(img_):
     test_image = image.load_img(img_, target_size=(200, 200))
     test_image = np.expand_dims(test_image, axis=0)
-    result = classifierLoad.predict(test_image)# [[1,0]] or [[0,1]]
-    print(result)
+    result = classifierLoad.predict(test_image)
     if result[0][0] == 1:
         return 1
-    elif result[0][0] == 0:
+    elif result[0][0] == 1:
         return 0
 
 
